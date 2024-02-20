@@ -1,37 +1,34 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 import Styling from "./header.module.css";
 
-export default function header() {
+export default function Header() {
+  const pathname = usePathname();
+
   return (
     <header className={Styling.header}>
       <nav>
-        <ul id="ul">
-          <li id={Styling.about}>
-            <Link href="/about" id={Styling.aboutLink}>
-              About
-            </Link>
+        <ul>
+          <li className={pathname === "/about" ? Styling.current : ""}>
+            <Link href="/about">About</Link>
           </li>
-          <li id={Styling.home}>
-            <Link href="/" id={Styling.homeLink}>
-              Home
-            </Link>
+          <li className={pathname === "/" ? Styling.current : ""}>
+            <Link href="/">Home</Link>
           </li>
-          <li id={Styling.projects}>
-            <Link href="/projects" id={Styling.projectsLink}>
-              My projects
-            </Link>
+          <li className={pathname === "/projects" ? Styling.current : ""}>
+            <Link href="/projects">My projects</Link>
           </li>
-          <li id={Styling.blog}>
-            <Link href="/blog" id={Styling.blogLink}>
-              Blog
-            </Link>
+          <li className={pathname === "/blog" ? Styling.current : ""}>
+            <Link href="/blog">Blog</Link>
           </li>
-          <li id={Styling.services}>
-            <Link href="/services" id={Styling.servicesLink}>
-              Services
-            </Link>
+          <li className={pathname === "/services" ? Styling.current : ""}>
+            <Link href="/services">Services</Link>
           </li>
-          <li id="nightModeListItem"></li>
+          <li className={pathname === "/contact" ? Styling.current : ""}>
+            <Link href="/contact">Contact</Link>
+          </li>
         </ul>
       </nav>
     </header>

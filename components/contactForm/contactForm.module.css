@@ -109,7 +109,8 @@
 
 .green {
   background-color: hsl(120, 100%, 80%);
-  border: 1px solid hsl(120, 100%, 80%);
+  border: 2px solid hsl(120, 100%, 30%);
+  color: hsl(120, 100%, 30%);
 }
 
 .iconDiv {
@@ -121,5 +122,5 @@
 }
 
 .textDiv {
-  width: 150px;
+  width: 200px;
 }

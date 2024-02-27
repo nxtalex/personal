@@ -3,7 +3,7 @@
 import Styling from "./contactForm.module.css";
 import { useState } from "react";
 
-export default function contactForm() {
+export default function contactForm({ openPopup }) {
   const [fullname, setFullName] = useState("");
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
@@ -28,11 +28,14 @@ export default function contactForm() {
     const { msg, success } = await res.json();
     setError(msg);
     setSuccess(success);
+    console.log(msg);
 
     if (success) {
+      openPopup();
       setFullName("");
       setMessage("");
       setEmail("");
+      console.log("success");
     }
   };
 
@@ -50,6 +53,11 @@ export default function contactForm() {
             value={fullname}
             onChange={(e) => setFullName(e.target.value)}
           />
+          {success ? (
+            <div></div>
+          ) : (
+            <div className={Styling.error}>{error.fullname}</div>
+          )}
         </div>
 
         <div className={Styling.div}>
@@ -63,6 +71,11 @@ export default function contactForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+          {success ? (
+            <div></div>
+          ) : (
+            <div className={Styling.error}>{error.email}</div>
+          )}
         </div>
 
         <div className={Styling.div}>
@@ -75,48 +88,16 @@ export default function contactForm() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>
+          {success ? (
+            <div></div>
+          ) : (
+            <div className={Styling.error}>{error.message}</div>
+          )}
         </div>
         <div id={Styling.buttonDiv}>
           <button id={Styling.button} type="submit">
             Send
           </button>
-        </div>
-
-        <div className={Styling.messages}>
-          {error &&
-            error.map((e, i) => (
-              <div
-                className={`${Styling.message} ${
-                  success ? Styling.green : Styling.red
-                }`}
-                key={i}
-              >
-                <div className={Styling.iconDiv}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 22 22"
-                    height={36}
-                    width={36}
-                  >
-                    <circle
-                      cx="11"
-                      cy="-1041.36"
-                      r="8"
-                      transform="matrix(1 0 0-1 0-1030.36)"
-                      opacity=".98"
-                      fill="#da4453"
-                    />
-                    <path
-                      d="m-26.309 18.07c-1.18 0-2.135.968-2.135 2.129v12.82c0 1.176.948 2.129 2.135 2.129 1.183 0 2.135-.968 2.135-2.129v-12.82c0-1.176-.946-2.129-2.135-2.129zm0 21.348c-1.18 0-2.135.954-2.135 2.135 0 1.18.954 2.135 2.135 2.135 1.181 0 2.135-.954 2.135-2.135 0-1.18-.952-2.135-2.135-2.135z"
-                      transform="matrix(.30056 0 0 .30056 18.902 1.728)"
-                      fill="#fff"
-                      stroke="#fff"
-                    />
-                  </svg>
-                </div>
-                <div className={Styling.textDiv}>{e}</div>
-              </div>
-            ))}
         </div>
       </form>
     </section>

@@ -11,16 +11,15 @@ export async function POST(req) {
     await Contact.create({ fullname, email, message });
 
     return NextResponse.json({
-      msg: ["Message sent successfully"],
       success: true,
     });
   } catch (error) {
     if (error instanceof mongoose.Error.ValidationError) {
-      let errorList = [];
-      for (let e in error.errors) {
-        errorList.push(error.errors[e].message);
+      let errorObject = {};
+      for (let field in error.errors) {
+        errorObject[field] = error.errors[field].message;
       }
-      return NextResponse.json({ msg: errorList });
+      return NextResponse.json({ msg: errorObject });
     } else {
       return NextResponse.json({ msg: ["Unable to send message."] });
     }

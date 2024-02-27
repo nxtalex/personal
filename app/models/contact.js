@@ -3,21 +3,24 @@ import mongoose, { Schema } from "mongoose";
 const contactSchema = new Schema({
   fullname: {
     type: String,
-    required: [true, "Name is required."],
+    required: [true, "Please enter your name."],
     trim: true,
-    minLength: [2, "Name must be longer than 2 characters"],
-    maxLength: [50, "Name must be less than 50 characters"],
+    minLength: [2, "Please make sure your name is longer than 2 characters"],
+    maxLength: [50, "Please make sure your name is less than 50 characters"],
   },
 
   email: {
     type: String,
-    required: [true, "Email is required."],
-    match: [/^[\w.%+-]+@[\w.-]+\.[A-Za-z]{2,}$/i, "Invalid email address"],
+    required: [true, "Please enter your email."],
+    match: [
+      /^[\w.%+-]+@[\w.-]+\.[A-Za-z]{2,}$/i,
+      "Please make sure your email address is valid",
+    ],
   },
 
   message: {
     type: String,
-    required: [true, "Message is required."],
+    required: [true, "Please enter a message."],
   },
 
   date: {

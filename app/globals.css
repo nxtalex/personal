@@ -15,26 +15,36 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  --color: hsl(0, 0%, 10%);
-  --background-color: hsl(0, 0%, 95%);
-  --listItemColor: hsl(0, 0%, 10%);
-  --listItemColorHover: hsl(0, 0%, 90%);
-  --listItemBackgroundColorHover: rgb(50, 0, 100);
-  --labelColor: white;
-  --inputColor: black;
-  --inputBackgroundColor: white;
-  --inputPlaceholderColor: hsl(0, 0%, 55%);
-  color: var(--color);
-  background-color: var(--background-color);
+  --theme-color-1-m15: hsl(258, 74%, 30%);
+  --theme-color-1-m5: hsl(258, 74%, 40%);
+  --theme-color-1: #511ec8;
+  --theme-color-1-p5: hsl(258, 74%, 50%);
+  --theme-color-1-p10: hsl(258, 74%, 55%);
+  --theme-color-1-p15: hsl(258, 74%, 60%);
+  --theme-color-1-p30: hsl(258, 74%, 75%);
+  --theme-color-1-p40: hsl(258, 74%, 85%);
+  --theme-color-2-m5: hsl(266, 32%, 7%);
+  --theme-color-2: hsl(268, 21%, 12%);
+  --theme-color-2-p5: hsl(268, 21%, 17%);
+  --theme-color-2-p10: hsl(268, 21%, 22%);
+  --theme-color-2-p20: hsl(268, 21%, 32%);
+  --theme-color-2-p40: hsl(268, 21%, 52%);
+  --theme-color-3-m15: hsl(293, 100%, 83%);
+  --theme-color-3-m5: hsl(293, 100%, 93%);
+  --theme-color-3: hsl(293, 100%, 98%);
+  --success-background: #c0e1b8;
+  --sucess-color: #1e720a;
+  --error: ;
+  --placeholder: hsl(0, 0%, 50%);
+
+  color: var(--theme-color-2);
+  background-color: var(--theme-color-1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: hsl(0, 0%, 5%);
-    --color: hsl(0, 0%, 90%);
-    --listItemColor: hsl(0, 0%, 90%);
-    --inputColor: white;
-    --inputBackgroundColor: hsl(0, 0%, 10%);
+    color: var(--theme-color-3);
+    background-color: var(--theme-color-2);
   }
 }
 
@@ -60,24 +70,14 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-background-clip: black;
-  -webkit-text-fill-color: #ffffff;
+  caret-color: var(--theme-color-3);
+  -webkit-background-clip: var(--theme-color-2);
+  -webkit-text-fill-color: var(--theme-color-3);
   transition: background-color 5000s ease-in-out 0s;
-  box-shadow: inset 0 0 20px 20px hsl(0, 0%, 10%);
-}
-
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-textarea:-webkit-autofill:active {
-  -webkit-background-clip: black;
-  -webkit-text-fill-color: #ffffff;
-  transition: background-color 5000s ease-in-out 0s;
-  box-shadow: inset 0 0 20px 20px hsl(0, 0%, 10%);
 }
 
 ::placeholder {
-  color: var(--inputPlaceholderColor);
+  color: var(--placeholder);
   opacity: 1;
 }
 
@@ -93,14 +93,10 @@ textarea:-webkit-autofill:active {
   width: 0.75em;
 }
 ::-webkit-scrollbar-track {
-  background-color: var(--background-color);
+  background-color: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: var(--listItemBackgroundColorHover);
+  background-color: var(--theme-color-1);
+  border: 2px solid var(--theme-color-3);
   border-radius: 100vw;
 }
-
-/* * {
-  scrollbar-width: auto;
-  scrollbar-color: var(--listItemBackgroundColorHover) var(--background-color);
-} */

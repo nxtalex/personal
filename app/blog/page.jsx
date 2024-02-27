@@ -1,4 +1,3 @@
-import Popup from "@/components/contactForm/popup";
 import Styling from "./page.module.css";
 
 export default function page() {

@@ -1,6 +1,6 @@
 import { useRouter } from "next/navigation";
-import MessageSent from "@/svg/MessageSent";
-import Close from "@/svg/close";
+import MessageSent from "../../svg/MessageSent";
+import Close from "../../svg/close";
 import Styling from "./popup.module.css";
 export default function Popup({ closePopup }) {
   const router = useRouter();

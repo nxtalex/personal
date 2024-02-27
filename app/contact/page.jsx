@@ -1,8 +1,8 @@
 "use client";
 
-import ContactForm from "@/components/contactForm/contactForm.jsx";
+import ContactForm from "../../components/contactForm/contactForm.jsx";
 import Styling from "./page.module.css";
-import Popup from "@/components/contactForm/Popup.jsx";
+import Popup from "../../components/contactForm/Popup.jsx";
 import { useState } from "react";
 
 export default function page() {

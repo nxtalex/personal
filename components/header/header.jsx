@@ -11,11 +11,11 @@ export default function Header() {
     <header className={Styling.header}>
       <nav>
         <ul>
-          <li className={pathname === "/about" ? Styling.current : ""}>
-            <Link href="/about">About</Link>
-          </li>
           <li className={pathname === "/" ? Styling.current : ""}>
             <Link href="/">Home</Link>
+          </li>
+          <li className={pathname === "/about" ? Styling.current : ""}>
+            <Link href="/about">About</Link>
           </li>
           <li className={pathname === "/projects" ? Styling.current : ""}>
             <Link href="/projects">My projects</Link>
